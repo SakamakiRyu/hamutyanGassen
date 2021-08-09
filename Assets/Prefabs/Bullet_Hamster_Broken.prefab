@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4393826374182212826}
   - component: {fileID: 4393826374182212827}
   - component: {fileID: 4393826374182212828}
+  - component: {fileID: -3148494843591996196}
   m_Layer: 0
-  m_Name: Bullet_HamsterBroken
+  m_Name: Bullet_Hamster_Broken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5ab69f456045bde4691dde6964d2c9b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,3 +102,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-3148494843591996196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4393826374182212829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf61a58b677f234398d6d161e734be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_destroyTime: 1

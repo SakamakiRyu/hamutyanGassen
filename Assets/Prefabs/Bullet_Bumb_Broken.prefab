@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7847943217860613140}
   - component: {fileID: 7847943217860613141}
   - component: {fileID: 7847943217860613142}
+  - component: {fileID: -5420987400611951463}
   m_Layer: 0
   m_Name: Bullet_Bumb_Broken
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: bd503c2b12cedb642a11787c1af3864e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,3 +102,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5420987400611951463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7847943217860613143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf61a58b677f234398d6d161e734be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

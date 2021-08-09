@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     /// <summary>カウントダウンオブジェクト</summary>    
     [SerializeField] GameObject m_countDown;
     /// <summary>ゲームスタート時の</summary>
-    [SerializeField] GameObject[] m_startObjects;
+    [SerializeField] GameObject[] m_staticObjects;
     /// <summary>自動生成する爆弾</summary>
     [SerializeField] GameObject m_bomb;
     /// <summary>数字を表示するImage</summary>
