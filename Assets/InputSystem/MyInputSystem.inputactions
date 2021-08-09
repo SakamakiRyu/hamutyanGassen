@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "DIrection",
+                    "name": "Direction",
                     "type": "Value",
                     "id": "063e1736-992e-438f-b565-5a402e22ec6a",
                     "expectedControlType": "Vector2",
@@ -96,7 +96,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "GamePad",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -107,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -118,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -129,7 +129,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -140,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -151,7 +151,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "PC",
-                    "action": "DIrection",
+                    "action": "Direction",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

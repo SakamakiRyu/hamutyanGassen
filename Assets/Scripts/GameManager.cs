@@ -5,27 +5,26 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    /// <summary>カウントダウンに使う数字のSprite</summary>
-    [SerializeField] Sprite[] m_nubers;
-    /// <summary>数字を表示するImage</summary>
-    [SerializeField] Image m_displayNumber;
     /// <summary>カウントダウンオブジェクト</summary>    
     [SerializeField] GameObject m_countDown;
+    /// <summary>ゲームスタート時の</summary>
+    [SerializeField] GameObject[] m_startObjects;
+    /// <summary>自動生成する爆弾</summary>
+    [SerializeField] GameObject m_bomb;
+    /// <summary>数字を表示するImage</summary>
+    [SerializeField] Image m_displayNumber;
+    /// <summary>カウントダウンに使う数字のSprite</summary>
+    [SerializeField] Sprite[] m_nubers;
+    /// <summary></summary>
+    [SerializeField] Transform[] m_startPositions;
     /// <summary>カウントの初期値</summary>
     [SerializeField] int m_startCount;
-    /// <summary>プレイヤー</summary>
-    [SerializeField] GameObject[] m_players;
 
     bool m_isStarted = false;
 
     private void Start()
     {
-        if (m_startCount > m_nubers.Length)
-        {
-            m_startCount = m_nubers.Length - 1;
-        }
-        m_displayNumber.sprite = m_nubers[m_startCount];
-        StartCoroutine(CountDown());
+        Reflash();
     }
 
     /// <summary>カウントダウン</summary>
@@ -38,5 +37,16 @@ public class GameManager : MonoBehaviour
         }
         m_isStarted = true;
         Destroy(m_countDown);
+    }
+
+    /// <summary>ゲームスタート処理</summary>
+    void Reflash()
+    {
+        if (m_startCount > m_nubers.Length)
+        {
+            m_startCount = m_nubers.Length - 1;
+        }
+        m_displayNumber.sprite = m_nubers[m_startCount];
+        StartCoroutine(CountDown());
     }
 }
