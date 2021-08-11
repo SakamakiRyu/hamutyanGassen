@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
-public class Player : MonoBehaviour
+public class Hamster : MonoBehaviour
 {
     /// <summary>弾</summary>
     [SerializeField] GameObject m_bulletPrefab = null;
@@ -16,6 +16,24 @@ public class Player : MonoBehaviour
     [SerializeField] float m_bulletSpeed = 0;
     /// <summary>発射間隔 ( 時間 )</summary>
     [SerializeField] float m_fireDelayTime = 0;
+    /// <summary>体力</summary>
+    [SerializeField] int m_hp;
+    /// <summary>ゲーム中かのフラグ</summary>
+    [SerializeField] bool m_isStarted = false;
+    /// <summary>リザルト画面</summary>
+    [SerializeField] GameObject m_resultWindow = null;
+    /// <summary>被弾時の効果音</summary>
+    [SerializeField] AudioClip m_damagedSE;
+
+    bool m_isFire = false;
+    GameManager m_gm;
+    AudioSource m_souce;
+
+    public bool IsStarted 
+    {
+        get => m_isStarted; 
+        set { m_isStarted = value; }
+    }
 
     InputAction m_move, m_dir;
     Rigidbody2D m_rb;
@@ -29,13 +47,32 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Fire());
+        m_gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        m_souce = GetComponent<AudioSource>();
     }
 
     private void Update()
     {
-        Move();
-        Direction();
+        if (m_isStarted)
+        {
+            Move();
+            Direction();
+            if (!m_isFire)
+            {
+                StartCoroutine(Fire());
+                m_isFire = true;
+            }
+        }
+    }
+
+    void EndGame()
+    {
+        if (m_hp <= 0)
+        {
+            Destroy(gameObject);
+            m_resultWindow.SetActive(true);
+            m_gm.m_isGameEnd = true;
+        }
     }
 
     /// <summary>移動</summary>
@@ -63,9 +100,9 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>射撃</summary>
-    IEnumerator Fire()   // 後に修正
+    IEnumerator Fire()
     {
-        if (!m_bulletPrefab) yield return null;
+        if (!m_bulletPrefab) yield return null; 
         {
             while (true)
             {
@@ -77,6 +114,25 @@ public class Player : MonoBehaviour
                 go.transform.up = bulletdir;
                 go.GetComponent<Rigidbody2D>().velocity = shotForward * m_bulletSpeed;
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HamsterSeed"))
+        {
+            m_hp--;
+            m_souce.PlayOneShot(m_damagedSE);
+            EndGame();
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("PumpkinSeed"))
+        {
+            m_hp--;
+            m_souce.PlayOneShot(m_damagedSE);
+            EndGame();
         }
     }
 }
